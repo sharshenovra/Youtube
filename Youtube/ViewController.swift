@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         let view = UIStackView()
         view.axis = .horizontal
         view.backgroundColor = .systemGray6
-        view.distribution = .fillEqually
+        view.distribution = .equalCentering
         return view
     }()
     
@@ -196,7 +196,7 @@ class ViewController: UIViewController {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.top.equalToSuperview().offset(view.frame.height / -7)
-            make.bottom.equalToSuperview().offset(view.frame.height / 10)
+            make.bottom.equalToSuperview().offset(view.frame.height / 12)
         }
         
         scrollView.addSubview(totalView)
@@ -315,8 +315,9 @@ class ViewController: UIViewController {
         //
         view.addSubview(blackView)
         blackView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
-            make.height.equalToSuperview().dividedBy(10)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.height.equalToSuperview().dividedBy(12)
         }
         
         stackView.addArrangedSubview(btn1)
@@ -327,12 +328,10 @@ class ViewController: UIViewController {
         
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(15)
-            make.bottom.equalToSuperview()
-            make.height.equalToSuperview().dividedBy(10)
+            make.left.right.equalToSuperview().inset(view.frame.width / 20)
+            make.top.equalTo(blackView).inset(view.frame.width / 60)
+            make.height.equalToSuperview().dividedBy(20)
         }
-        
     }
-    
 }
 
