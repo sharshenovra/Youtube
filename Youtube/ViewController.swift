@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
+        view.backgroundColor = .systemGray6
         view.distribution = .fillEqually
         return view
     }()
@@ -75,6 +76,7 @@ class ViewController: UIViewController {
     private lazy var stackView1: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
+        view.backgroundColor = .systemGray6
         view.distribution = .equalSpacing
         return view
     }()
@@ -182,6 +184,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         view.backgroundColor = .systemGray6
+        scrollView.backgroundColor = .systemGray6
+        totalView.backgroundColor = .systemGray6
        setupSubViews()
     }
 
@@ -190,8 +194,8 @@ class ViewController: UIViewController {
         
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(view.frame.height / -30)
             make.edges.equalToSuperview()
+            make.top.equalToSuperview().offset(view.frame.height / -7)
             make.bottom.equalToSuperview().offset(view.frame.height / 10)
         }
         
@@ -217,14 +221,14 @@ class ViewController: UIViewController {
             make.width.equalToSuperview().dividedBy(2.3)
             make.right.equalToSuperview().inset(15)
             make.bottom.equalTo(blackView1).offset(-10)
-            make.height.equalToSuperview().dividedBy(30)
+            make.height.equalToSuperview().dividedBy(50)
         }
         
         blackView1.addSubview(ytLogo)
         ytLogo.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(15)
             make.width.equalToSuperview().dividedBy(4)
-            make.height.equalToSuperview().dividedBy(3)
+            make.height.equalToSuperview().dividedBy(5)
             make.bottom.equalToSuperview().offset(-10)
         }
         
@@ -306,7 +310,7 @@ class ViewController: UIViewController {
             make.top.equalTo(youtubeView5.snp.bottom)
         }
         totalView.snp.makeConstraints { make in
-            make.bottom.equalTo(video5.snp.bottom).offset(20)
+            make.bottom.equalTo(video5.snp.bottom).offset(view.frame.height / 20)
         }
         //
         view.addSubview(blackView)
@@ -323,7 +327,8 @@ class ViewController: UIViewController {
         
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview().inset(15)
+            make.left.right.equalToSuperview().inset(15)
+            make.bottom.equalToSuperview()
             make.height.equalToSuperview().dividedBy(10)
         }
         
